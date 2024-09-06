@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            "sevillana": "Sevillana, cursive"
+          },
+          backgroundImage: {
+            l1: " linear-gradient(red, yellow)"
+          },
+          fontSize: {
+            "3xl": "26px",
+            "4xl": "32px",
+            "5xl": "56px",
+            "6xl": "70px",
+          },
+          colors: {
+            xyz: '#2BAF6B',
+          }
+
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+    .hover_bg_red:hover{ background: red;}
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="group font-sevillana">
+  <section class="container mx-auto">
+    <nav class="flex justify-between py-5"> <a href="/">Page logo</a>
+      <ul id="mobile_nav"
+        class="flex gap-4 items-center md:relative fixed max-md:h-full max-md:w-full max-md:bg-slate-300 z-10 max-md:translate-x-full transition-all duration-300 ease-linear left-0 top-0 max-md:flex-col max-md:justify-center max-md:items-center">
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+        <ll><a class="text-base font-normal leading-normal hover:text-blue-400 transition-all duration-300 ease-linear"
+            href="#">link1</a></ll>
+
+      </ul>
+      <div class="relative z-20 flex gap-x-4">
+        <div class="relative size-10 border border-solid" id="toggle_button">
+          <div class="absolute h-full w-full bg-green-400 top-0 transition-all duration-300 left-0 show_nav"></div>
+          <div class="absolute h-full w-full bg-black top-0 transition-all duration-300 left-0 hide_nav opacity-0">
+          </div>
+        </div>
+        <button class="px-6 py-2 bg-slate-500">Visit Us</button>
+      </div>
+    </nav>
+  </section>
+  <script>
+    const nav = document.getElementById("mobile_nav")
+    const toggleButton = document.getElementById("toggle_button")
+    const toggleButtonShowNav = document.querySelector("#toggle_button .show_nav ")
+    const toggleButtonHideNav = document.querySelector("#toggle_button .hide_nav ")
+    console.log("default", nav.classList)
+    toggleButton.addEventListener("click",
+      function () {
+        nav.classList.toggle("max-md:translate-x-full")
+        toggleButtonShowNav.classList.toggle("opacity-0")
+        toggleButtonHideNav.classList.toggle("opacity-0")
+        console.log("button clicked", nav.classList)
+      }
+    )
+  </script>
+</body>
+
+</html>
